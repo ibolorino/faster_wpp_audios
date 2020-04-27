@@ -1,3 +1,5 @@
+const availableRates = [0.5, 1, 1.5, 2, 3]
+
 const interval = setInterval( () => {
     header = getHeader();
     if (header) {
@@ -21,7 +23,7 @@ function addButton(elem) {
 
 function createButton() {
     const button = document.createElement('button');
-    button.innerHTML = "2x";
+    setTextButton(button, 1);
     button.setAttribute('data-rate', 1);
     button.setAttribute('id', 'faster-audio-btn')
     return button;
@@ -29,9 +31,9 @@ function createButton() {
 
 function addEventsButton(button){
     button.addEventListener('click', function(){
-        button.classList.toggle('active');
-        button.setAttribute('data-rate', toggleValue(button.getAttribute('data-rate'), 2, 1));
+        button.setAttribute('data-rate', toggleRate(button.getAttribute('data-rate')));
         rate = parseFloat(button.getAttribute('data-rate'));
+        setTextButton(button, rate);
         audios = document.querySelectorAll('audio');
         setAudiosRate(audios, rate);
     });
@@ -59,4 +61,21 @@ function listenClick() {
 function toggleValue(attr, val1, val2) {
     attr = attr == val1 ? val2 : val1;
     return attr;
+}
+
+
+function toggleRate(rate) {
+    console.log(rate);
+    for (var i=0; i<availableRates.length; i++) {
+        if (rate == availableRates[i]) {
+            i++;
+            if (i >= availableRates.length) i=0;
+            return availableRates[i];
+        }
+    }
+    return false;
+}
+
+function setTextButton(button, rate) {
+    button.innerHTML = rate.toString() + "x";
 }

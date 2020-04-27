@@ -1,0 +1,9 @@
+#faster-audio-btn {
+    font-size: 1rem;
+    color: #666;
+}
+
+.active {
+    color: #333;
+    font-weight: bold;
+}

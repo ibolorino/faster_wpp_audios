@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "Faster Audios",
+    "version": "0.2",
+    "content_scripts": [
+        {
+            "matches": ["https://web.whatsapp.com/"],
+            "css": ["styles.css"],
+            "js": ["index.js"]
+        }
+    ]
+}

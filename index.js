@@ -57,13 +57,6 @@ function listenClick() {
     });
 }
 
-
-function toggleValue(attr, val1, val2) {
-    attr = attr == val1 ? val2 : val1;
-    return attr;
-}
-
-
 function toggleRate(rate) {
     console.log(rate);
     for (var i=0; i<availableRates.length; i++) {

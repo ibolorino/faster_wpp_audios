@@ -10,7 +10,7 @@ const interval = setInterval( () => {
 }, 1000)
 
 function getHeader() {
-    const header = document.querySelector('._3auIg');
+    const header = document.querySelector('._1QUKR');
     return header;
 }
 
